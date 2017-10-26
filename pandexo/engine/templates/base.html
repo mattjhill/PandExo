@@ -7,16 +7,16 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{ static_url('img/favicon.gif')}}">
+    <link rel="icon" href="{{ full_url('static/img/favicon.gif')}}">
 
     <title>PandExo - ETC for Exoplanets</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ static_url('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ full_url('static/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ static_url('css/starter.css')}}" rel="stylesheet">
-    <link href="{{ static_url('css/bootstrap-submenu.min.css')}}" rel="stylesheet">
+    <link href="{{ full_url('static/starter.css')}}" rel="stylesheet">
+    <link href="{{ full_url('static/css/bootstrap-submenu.min.css')}}" rel="stylesheet">
     {% block css %}{% end %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -58,21 +58,21 @@
                 <li><a href="https://exoctk.stsci.edu/ldc">Limb Darkening Calculator</a></li>
                 
                 <li class="dropdown">
-                <a tabindex="0" href="/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-submenu>PandExo <span class="caret"></span></a>
+                <a tabindex="0" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-submenu>PandExo <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ full_url('') }}">Home</a></li>
                         <li class="dropdown-submenu">
                             <a tabindex="0">JWST</a>
                             <ul class="dropdown-menu">
-                                <li><a tabindex="0" href="/calculation/new">New Calculation</a></li>
-                                <li><a tabindex="0" href="/dashboard">Dashboard</a></li>
+                                <li><a tabindex="0" href="{{ full_url('calculation/new') }}">New Calculation</a></li>
+                                <li><a tabindex="0" href="{{ full_url('dashboard') }}">Dashboard</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
                             <a tabindex="0">HST</a>
                             <ul class="dropdown-menu">
-                                <li><a tabindex="0" href="/calculation/newHST">New Calculation</a></li>
-                                <li><a tabindex="0" href="/dashboardhst">Dashboard</a></li>
+                                <li><a tabindex="0" href="{{ full_url('calculation/newHST') }}">New Calculation</a></li>
+                                <li><a tabindex="0" href="{{ full_url('dashboardhst')">Dashboard</a></li>
                             </ul>
                         </li>
                         <li><a href="https://natashabatalha.github.io/PandExo/">DOCS</a></li>
@@ -89,14 +89,14 @@
     <div class="container">
 
                 <p >
-                        <img src="{{ static_url('img/ExoCTK_logo.gif')}}" width="450px" />
+                        <img src="{{ full_url('static/img/ExoCTK_logo.gif')}}" width="450px" />
                 </p>
             {% block body %}{% end %}
 
     </div> <!-- /container -->
     <div class="container">
                 <p style="float:right;">    
-                        <img src="{{ static_url('img/STScI_logo.png')}}" width="150px" />
+                        <img src="{{ full_url('static/img/STScI_logo.png')}}" width="150px" />
                 </p> 
     </div> 
 
@@ -121,9 +121,9 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="{{ static_url('js/bootstrap.min.js') }}"></script>
-<script src="{{ static_url('js/bootstrap-submenu.min.js') }}"></script>
-<script src="{{ static_url('js/docs.js') }}"></script>
+<script src="{{ full_url('static/js/bootstrap.min.js') }}"></script>
+<script src="{{ full_url('static/js/bootstrap-submenu.min.js') }}"></script>
+<script src="{{ full_url('static/js/docs.js') }}"></script>
 <!--Custom code-->
 {% block js %}
 {% end %}

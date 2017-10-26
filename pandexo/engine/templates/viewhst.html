@@ -30,7 +30,7 @@
 
 
 <div class="container">
-    <a type="button" class="btn btn-success" href="/calculation/download/{{ id }}">Download Data</a>
+    <a type="button" class="btn btn-success" href="{{ full_url('calculation/download/{}'.format(id)) }}">Download Data</a>
 </div>
 
 {% end %}

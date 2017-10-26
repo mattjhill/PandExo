@@ -7,7 +7,7 @@
 {% block body %}
 <h1 class="page-header">New Transmission Spectra</h1>
 <p> Enter up to 10 molecules. To specify background gas enter 'bkg' (no quotes). For H2/He background, write 'bkg' in both H2 and He boxes. Then specify H2/He fraction below. The sum of the mixing ratio of all molecules should NOT exceed 1. Please credit PandExo & Line et al. 2012.</p>
-<form enctype="multipart/form-data" class="form-horizontal" action="/calculation/newspec" method="post" id="calculation-form">
+<form enctype="multipart/form-data" class="form-horizontal" action="{{ full_url('calculation/newspec') }}" method="post" id="calculation-form">
 
     <div class="form-group">
         <label class="col-md-3 control-label" for="calcName">Name</label>
@@ -318,7 +318,7 @@
 {% end %}
 
 {% block js %}        
-<script src="{{ static_url('js/starter.formspec.js') }}"></script>    
+<script src="{{ full_url('static/js/starter.formspec.js') }}"></script>
 
 
 <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.js"></script>

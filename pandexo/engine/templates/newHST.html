@@ -2,14 +2,14 @@
 
 {% block css %}
 <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.css" type="text/css"/>
-<link href="{{ static_url('css/select2.min.css')}}" rel="stylesheet">
-<link href="{{ static_url('css/select2-bootstrap-theme.min.css')}}" rel="stylesheet">
+<link href="{{ full_url('static/css/select2.min.css')}}" rel="stylesheet">
+<link href="{{ full_url('static/css/select2-bootstrap-theme.min.css')}}" rel="stylesheet">
 {% end %}
 
 {% block body %}
 <h1 class="page-header">New HST Calculation</h1>
 
-<form enctype="multipart/form-data" class="form-horizontal" action="/calculation/newHST" method="post" id="calculation-form">
+<form enctype="multipart/form-data" class="form-horizontal" action="{{ full_url('calculation/newHST') }}" method="post" id="calculation-form">
 
     <div class="form-group">
         <label class="col-md-3 control-label" for="calcName">Name</label>
@@ -231,8 +231,8 @@
 {% end %}
 
 {% block js %}        
-<script src="{{ static_url('js/starter.formhst.js') }}"></script>
-<script src="{{ static_url('js/select2.min.js') }}"></script>
+<script src="{{ full_url('static/js/starter.formhst.js') }}"></script>
+<script src="{{ full_url('static/js/select2.min.js') }}"></script>
         
 <script type="text/javascript">
     $(document).ready(function(){
