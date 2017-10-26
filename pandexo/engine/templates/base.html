@@ -12,11 +12,11 @@
     <title>PandExo - ETC for Exoplanets</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ full_url('static/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ full_url('static/bootstrap.min.css')}}">
 
     <!-- Custom styles for this template -->
-    <link href="{{ full_url('static/starter.css')}}" rel="stylesheet">
-    <link href="{{ full_url('static/css/bootstrap-submenu.min.css')}}" rel="stylesheet">
+    <link href="{{ full_url('static/starter.css')}}">
+    <link href="{{ full_url('static/css/bootstrap-submenu.min.css')}}">
     {% block css %}{% end %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -89,14 +89,14 @@
     <div class="container">
 
                 <p >
-                        <img src="{{ full_url('static/img/ExoCTK_logo.gif') }}" width="450px" />
+                        <img src="{{ static_url('../static/img/ExoCTK_logo.gif', include_host=True) }}" width="450px" />
                 </p>
             {% block body %}{% end %}
 
     </div> <!-- /container -->
     <div class="container">
                 <p style="float:right;">    
-                        <img src="{{ full_url('static/img/STScI_logo.png')}}" width="150px" />
+                        <img src="{{ static_url('img/STScI_logo.png', include_host=True)}}" width="150px" />
                 </p> 
     </div> 
 
