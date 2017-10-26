@@ -26,6 +26,7 @@ else:
 
 # define location of temp files
 __TEMP__ = os.environ.get("PANDEXO_TEMP", os.path.join(os.path.dirname(__file__), "temp"))
+APPLICATION_ROOT = os.environ.get("PANDEXO_ROOT", "")
 #__LOG__ = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + "/"
 
 define("port", default=1111, help="run on the given port", type=int)
@@ -203,8 +204,8 @@ class BaseHandler(tornado.web.RequestHandler):
             self.buffer.popitem(last=False)
 
     def full_url(self, path, *args, **kwargs):
-        host_url = "{protocol}://{host}".format(**vars(self.request))
-        return urljoin(host_url, path)
+        root = path.lstrip('/')
+        return os.path.join(APPLICATION_ROOT, path)
 
     def get_template_namespace(self):
         """Returns a dictionary to be used as the default template namespace.
