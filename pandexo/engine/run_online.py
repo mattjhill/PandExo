@@ -17,6 +17,12 @@ from .ComputeZ import computeAlpha
 from .utils.plotters import create_component_jwst, create_component_spec, create_component_hst
 import pandas as pd 
 import numpy as np
+import sys
+
+if sys.version_info.major > 2:
+    from urllib.parse import urljoin
+else:
+    from urlparse import urljoin
 
 # define location of temp files
 __TEMP__ = os.environ.get("PANDEXO_TEMP", os.path.join(os.path.dirname(__file__), "temp"))
@@ -195,8 +201,34 @@ class BaseHandler(tornado.web.RequestHandler):
         # Only allow 100 tasks **globally**. This will delete old tasks first.
         if len(self.buffer) > 15:
             self.buffer.popitem(last=False)
-            
 
+    def full_url(self, path, *args, **kwargs):
+        host_url = "{protocol}://{host}".format(**vars(self.request))
+        return urljoin(host_url, path)
+
+    def get_template_namespace(self):
+        """Returns a dictionary to be used as the default template namespace.
+
+        May be overridden by subclasses to add or modify values.
+
+        The results of this method will be combined with additional
+        defaults in the `tornado.template` module and keyword arguments
+        to `render` or `render_string`.
+        """
+        namespace = dict(
+            handler=self,
+            request=self.request,
+            current_user=self.current_user,
+            locale=self.locale,
+            _=self.locale.translate,
+            pgettext=self.locale.pgettext,
+            static_url=self.static_url,
+            xsrf_form_html=self.xsrf_form_html,
+            reverse_url=self.reverse_url,
+            full_url=self.full_url
+        )
+        namespace.update(self.ui)
+        return namespace
 
 class HomeHandler(BaseHandler):
     def get(self):
