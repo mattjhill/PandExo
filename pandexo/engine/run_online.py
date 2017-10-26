@@ -20,6 +20,7 @@ import numpy as np
 
 # define location of temp files
 __TEMP__ = os.environ.get("PANDEXO_TEMP", os.path.join(os.path.dirname(__file__), "temp"))
+__PANDEXO_HOST__ = os.environ.get("PANDEXO_HOST", "")
 #__LOG__ = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + "/"
 
 define("port", default=1111, help="run on the given port", type=int)
@@ -39,28 +40,63 @@ class Application(tornado.web.Application):
     """
     def __init__(self):
         handlers = [
-            (r"/", HomeHandler),
-            (r"/about", AboutHandler),
-            (r"/dashboard", DashboardHandler),
-            (r"/dashboardspec", DashboardSpecHandler),
-            (r"/dashboardhst", DashboardHSTHandler),
-            (r"/tables", TablesHandler),
-            (r"/helpfulplots", HelpfulPlotsHandler),
-            (r"/calculation/new", CalculationNewHandler),
-            (r"/calculation/newHST", CalculationNewHSTHandler),
-            (r"/calculation/newspec", CalculationNewSpecHandler),
-            (r"/calculation/status/([^/]+)", CalculationStatusHandler),
-            (r"/calculation/statushst/([^/]+)", CalculationStatusHSTHandler),
-            (r"/calculation/statusspec/([^/]+)", CalculationStatusSpecHandler),
-            (r"/calculation/view/([^/]+)", CalculationViewHandler),
-            (r"/calculation/viewhst/([^/]+)", CalculationViewHSTHandler),
-            (r"/calculation/viewspec/([^/]+)", CalculationViewSpecHandler),
-            (r"/calculation/download/([^/]+)", CalculationDownloadHandler),
-            (r"/calculation/downloadspec/([^/]+)", CalculationDownloadSpecHandler),
-            (r"/calculation/downloadpandin/([^/]+)", CalculationDownloadPandInHandler)
+            tornado.web.URLSpec(r"/", HomeHandler, name="home"),
+
+            tornado.web.URLSpec(r"/about", AboutHandler, name="about"),
+
+            tornado.web.URLSpec(r"/dashboard", DashboardHandler,
+                                name='dashboard'),
+
+            tornado.web.URLSpec(r"/dashboardspec", DashboardSpecHandler,
+                                name="dashboardspec"),
+
+            tornado.web.URLSpec(r"/dashboardhst", DashboardHSTHandler,
+                                name="dashboardhst"),
+
+            tornado.web.URLSpec(r"/tables", TablesHandler, name="tables"),
+
+            tornado.web.URLSpec(r"/helpfulplots", HelpfulPlotsHandler,
+                                name="helpfulplots"),
+
+            tornado.web.URLSpec(r"/calculation/new", CalculationNewHandler,
+                                name="calculationnew"),
+
+            tornado.web.URLSpec(r"/calculation/newHST", CalculationNewHSTHandler,
+                                name="calculationnewHST"),
+
+            tornado.web.URLSpec(r"/calculation/newspec", CalculationNewSpecHandler,
+                                name="calculationnewspec"),
+
+            tornado.web.URLSpec(r"/calculation/status/([^/]+)", CalculationStatusHandler,
+                                name="calculationstatus"),
+
+            tornado.web.URLSpec(r"/calculation/statushst/([^/]+)", CalculationStatusHSTHandler,
+                                name="calculationstatushst"),
+
+            tornado.web.URLSpec(r"/calculation/statusspec/([^/]+)", CalculationStatusSpecHandler,
+                                name="calculation/statusspec"),
+
+            tornado.web.URLSpec(r"/calculation/view/([^/]+)", CalculationViewHandler,
+                                name="calculationview"),
+
+            tornado.web.URLSpec(r"/calculation/viewhst/([^/]+)", CalculationViewHSTHandler,
+                                name="calculationviewhst"),
+
+            tornado.web.URLSpec(r"/calculation/viewspec/([^/]+)", CalculationViewSpecHandler,
+                                name="calculationviewspec"),
+
+            tornado.web.URLSpec(r"/calculation/download/([^/]+)", CalculationDownloadHandler,
+                                name="calculationdownload"),
+
+            tornado.web.URLSpec(r"/calculation/downloadspec/([^/]+)", CalculationDownloadSpecHandler,
+                                name="calculationdownloadspec"),
+
+            tornado.web.URLSpec(r"/calculation/downloadpandin/([^/]+)", CalculationDownloadPandInHandler,
+                                name="calculationdownloadpandin")
         ]
         settings = dict(
             blog_title="Pandexo",
+            default_host=__PANDEXO_HOST__,
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static"),
             xsrf_cookies=True,
