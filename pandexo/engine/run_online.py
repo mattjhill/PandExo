@@ -204,7 +204,7 @@ class BaseHandler(tornado.web.RequestHandler):
             self.buffer.popitem(last=False)
 
     def full_url(self, path, *args, **kwargs):
-        root = path.lstrip('/')
+        path = path.lstrip('/')
         return os.path.join(APPLICATION_ROOT, path)
 
     def get_template_namespace(self):
