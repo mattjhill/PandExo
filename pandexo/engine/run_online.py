@@ -452,7 +452,7 @@ class CalculationNewHandler(BaseHandler):
 
         response = self._get_task_response(id)
         response['info'] = {}
-        response['location'] = '/calculation/status/{}'.format(id)
+        response['location'] = self.full_url('/calculation/status/{}'.format(id))
         
         
         self.write(dict(response))
@@ -543,7 +543,7 @@ class CalculationNewHSTHandler(BaseHandler):
 
         response = self._get_task_response_hst(id)
         response['info'] = {}
-        response['location'] = '/calculation/statushst/{}'.format(id)
+        response['location'] = self.full_url('/calculation/statushst/{}'.format(id))
         
         
         self.write(dict(response))
@@ -642,7 +642,7 @@ class CalculationNewSpecHandler(BaseHandler):
 
         response = self._get_task_response_spec(id)
         response['info'] = {}
-        response['location'] = '/calculation/statusspec/{}'.format(id)
+        response['location'] = self.full_url('/calculation/statusspec/{}'.format(id))
         
         
         self.write(dict(response))
