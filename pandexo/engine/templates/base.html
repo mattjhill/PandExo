@@ -89,14 +89,14 @@
     <div class="container">
 
                 <p >
-                        <img src="{{ static_url('img/ExoCTK_logo.gif', include_host=True) }}" width="450px" />
+                        <img src="{{ '{}://{}{}'.format(request.protocol, request.host, full_url('static/img/ExoCTK_logo.gif')) }}" width="450px" />
                 </p>
             {% block body %}{% end %}
 
     </div> <!-- /container -->
     <div class="container">
                 <p style="float:right;">    
-                        <img src="{{ static_url('img/STScI_logo.png', include_host=True) }}" width="150px" />
+                        <img src="{{ '{}://{}{}'.format(request.protocol, request.host, full_ur('static/img/STScI_logo.png')) }}" width="150px" />
                 </p> 
     </div> 
 
