@@ -456,7 +456,7 @@ class CalculationNewHandler(BaseHandler):
         
         
         self.write(dict(response))
-        self.redirect("/dashboard")
+        self.redirect(self.full_url("/dashboard"))
         
     
 class CalculationNewHSTHandler(BaseHandler):
@@ -547,7 +547,7 @@ class CalculationNewHSTHandler(BaseHandler):
         
         
         self.write(dict(response))
-        self.redirect("/dashboardhst")
+        self.redirect(self.full_url("/dashboardhst"))
         
             
 class CalculationNewSpecHandler(BaseHandler):
@@ -646,7 +646,7 @@ class CalculationNewSpecHandler(BaseHandler):
         
         
         self.write(dict(response))
-        self.redirect("/dashboardspec")
+        self.redirect(self.full_url("/dashboardspec"))
 
 
 class CalculationStatusHandler(BaseHandler):
