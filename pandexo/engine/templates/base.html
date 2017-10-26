@@ -58,21 +58,21 @@
                 <li><a href="https://exoctk.stsci.edu/ldc">Limb Darkening Calculator</a></li>
                 
                 <li class="dropdown">
-                <a tabindex="0" href="/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-submenu>PandExo <span class="caret"></span></a>
+                <a tabindex="0" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-submenu>PandExo <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ reverse_url('home') }}">Home</a></li>
                         <li class="dropdown-submenu">
                             <a tabindex="0">JWST</a>
                             <ul class="dropdown-menu">
-                                <li><a tabindex="0" href="/calculation/new">New Calculation</a></li>
-                                <li><a tabindex="0" href="/dashboard">Dashboard</a></li>
+                                <li><a tabindex="0" href="{{ reverse_url('calculationnew') }}">New Calculation</a></li>
+                                <li><a tabindex="0" href="{{ reverse_url('dashboard') }}">Dashboard</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
                             <a tabindex="0">HST</a>
                             <ul class="dropdown-menu">
-                                <li><a tabindex="0" href="/calculation/newHST">New Calculation</a></li>
-                                <li><a tabindex="0" href="/dashboardhst">Dashboard</a></li>
+                                <li><a tabindex="0" href="{{ reverse_url('calculationnewHST') }}">New Calculation</a></li>
+                                <li><a tabindex="0" href="{{ reverse_url('dashboardhst') }}">Dashboard</a></li>
                             </ul>
                         </li>
                         <li><a href="https://natashabatalha.github.io/PandExo/">DOCS</a></li>

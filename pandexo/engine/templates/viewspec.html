@@ -25,8 +25,8 @@
 </div>
 
 <div class="container">
-    <a type="button" class="btn btn-success" href="/calculation/downloadspec/{{ id }}">Download All Data</a>
-    <a type="button" class="btn btn-primary" href="/calculation/downloadpandin/{{ id }}">Download in Pandexo Format</a>
+    <a type="button" class="btn btn-success" href="{{ reverse_url('calculationdownloadspec') }}/{{ id }}">Download All Data</a>
+    <a type="button" class="btn btn-primary" href="{{ reverse_url('calculationdownloadpandin') }}/{{ id }}">Download in Pandexo Format</a>
 </div>
 
 
